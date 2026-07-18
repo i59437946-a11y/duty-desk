@@ -64,10 +64,13 @@ const server = http.createServer((req, res) => {
                 document.getElementById('enableBtn').innerText = "✅ 通知、音效與語音已啟用";
                 document.getElementById('enableBtn').style.background = "#28a745";
                 
-                // 播放一段無聲與無聲語音，解鎖瀏覽器的多媒體限制
+                // 播放一段音效解鎖
                 document.getElementById('alertSound').play().catch(()=>{});
+                
+                // 讓系統真的講一句話來徹底解除瀏覽器限制
                 if ('speechSynthesis' in window) {
-                    let unlockSpeech = new SpeechSynthesisUtterance('');
+                    const unlockSpeech = new SpeechSynthesisUtterance('語音系統已連線');
+                    unlockSpeech.lang = 'zh-TW';
                     window.speechSynthesis.speak(unlockSpeech);
                 }
             });
