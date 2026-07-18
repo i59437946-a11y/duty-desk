@@ -148,4 +148,4 @@ wss.on('connection', (ws) => {
 });
 
 const PORT = process.env.PORT || 8080;
-server.listen(PORT, () => { console.log(`伺服器運行在 port ${PORT}\`); });
+server.listen(PORT, () => { console.log(`伺服器運行在 port ${PORT}`); });
